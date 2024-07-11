@@ -14,8 +14,13 @@ class RegisterPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8),
         child: ListView(
           children: [
-            SizedBox(height: 75,),
-            Image.asset('assets/images/scholar.png',height: 100,),
+            SizedBox(
+              height: 75,
+            ),
+            Image.asset(
+              'assets/images/scholar.png',
+              height: 100,
+            ),
             const SizedBox(
               height: 25,
             ),
@@ -32,8 +37,9 @@ class RegisterPage extends StatelessWidget {
                 ),
               ],
             ),
-
-           
+            SizedBox(
+              height: 75,
+            ),
             Row(
               children: [
                 Text(
@@ -84,7 +90,6 @@ class RegisterPage extends StatelessWidget {
                 ),
               ],
             ),
-           
           ],
         ),
       ),
