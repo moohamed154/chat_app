@@ -8,12 +8,19 @@ String? hintText;
     return TextField(
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: TextStyle(color: Colors.white),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.white),
+        hintStyle: const TextStyle(
+          color: Colors.white,
+          fontSize: 20,
         ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.white),
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.white,
+          ),
+        ),
+        enabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.white,
+          ),
         ),
       ),
     );
