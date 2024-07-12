@@ -7,9 +7,9 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: (data){
-        if(data!.isEmpty){
-          return 'field is required' ;
+      validator: (data) {
+        if (data!.isEmpty) {
+          return 'field is required';
         }
       },
       onChanged: onChanged,
@@ -21,6 +21,11 @@ class CustomTextFormField extends StatelessWidget {
         hintStyle: const TextStyle(
           color: Colors.white,
           fontSize: 20,
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.white,
+          ),
         ),
         focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(
