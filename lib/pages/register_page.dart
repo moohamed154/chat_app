@@ -1,5 +1,6 @@
 import 'package:chat_app/constants.dart';
 import 'package:chat_app/helper/show_snack_bar.dart';
+import 'package:chat_app/pages/chat_page.dart';
 import 'package:chat_app/widgets/custom_button.dart';
 import 'package:chat_app/widgets/custom_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -40,7 +41,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: 75,
                 ),
                 Image.asset(
-                  'assets/images/scholar.png',
+                  kLogo,
                   height: 100,
                 ),
                 const SizedBox(
@@ -104,7 +105,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       });
                       try {
                         await registerUser();
-                        showSnackBar(context, 'Sucsses', Colors.green);
+                        //showSnackBar(context, 'Login Sucsses', Colors.green);
+                        Navigator.pushNamed(context, chatPage.id);
                       } on FirebaseAuthException catch (ex) {
                         if (ex.code == 'weak-password') {
                           showSnackBar(context,

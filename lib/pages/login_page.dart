@@ -1,5 +1,6 @@
 import 'package:chat_app/constants.dart';
 import 'package:chat_app/helper/show_snack_bar.dart';
+import 'package:chat_app/pages/chat_page.dart';
 import 'package:chat_app/pages/register_page.dart';
 import 'package:chat_app/widgets/custom_button.dart';
 import 'package:chat_app/widgets/custom_text_field.dart';
@@ -9,6 +10,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({super.key});
+ static String id = 'LoginPage';
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -36,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 75,
                 ),
                 Image.asset(
-                  'assets/images/scholar.png',
+                  kLogo,
                   height: 100,
                 ),
                 const SizedBox(
@@ -98,7 +100,8 @@ class _LoginPageState extends State<LoginPage> {
                       setState(() {});
                       try {
                         await loginUser();
-                        showSnackBar(context, 'Sucsses', Colors.green);
+                      //  showSnackBar(context, 'Login Sucsses', Colors.green);
+                         Navigator.pushNamed(context, chatPage.id);
                       } on FirebaseAuthException catch (ex) {
                         if (ex.code == 'user-not-found') {
                           showSnackBar(context, 'No user found for that email.',
