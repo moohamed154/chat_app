@@ -4,6 +4,7 @@ class CustomTextFormField extends StatelessWidget {
   CustomTextFormField({this.onChanged, this.hintText});
   String? hintText;
   Function(String)? onChanged;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
