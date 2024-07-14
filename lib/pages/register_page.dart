@@ -37,7 +37,7 @@ class _RegisterPageState extends State<RegisterPage> {
             key: formKey,
             child: ListView(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 75,
                 ),
                 Image.asset(
@@ -47,7 +47,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(
                   height: 25,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
@@ -60,10 +60,10 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 75,
                 ),
-                Row(
+                const Row(
                   children: [
                     Text(
                       'Register',
@@ -100,9 +100,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   onTap: () async {
                     if (formKey.currentState!.validate()) {
                       isLoading = true;
-                      setState(() {
-                        
-                      });
+                      setState(() {});
                       try {
                         await registerUser();
                         //showSnackBar(context, 'Login Sucsses', Colors.green);
@@ -121,9 +119,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         showSnackBar(context, 'There was an error', Colors.red);
                       }
                       isLoading = false;
-                      setState(() {
-                        
-                      });
+                      setState(() {});
                     } else {}
                   },
                   title: 'Register',
@@ -134,7 +130,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'already have an account?',
                       style: TextStyle(color: Colors.white),
                     ),
@@ -142,7 +138,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       onTap: () {
                         Navigator.pop(context);
                       },
-                      child: Text(
+                      child: const Text(
                         ' Login',
                         style: TextStyle(color: Color(0xffc6e8e7)),
                       ),
@@ -156,8 +152,6 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
   }
-
- 
 
   Future<void> registerUser() async {
     UserCredential user = await FirebaseAuth.instance

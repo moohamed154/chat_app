@@ -10,7 +10,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({super.key});
- static String id = 'LoginPage';
+  static String id = 'LoginPage';
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
             key: formKey,
             child: ListView(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 75,
                 ),
                 Image.asset(
@@ -44,10 +44,10 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(
                   height: 25,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       'Just Chat',
                       style: TextStyle(
                         fontSize: 32,
@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 75,
                 ),
                 const Row(
@@ -84,6 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 20,
                 ),
                 CustomTextFormField(
+                  obSecured: true,
                   onChanged: (data) {
                     pasword = data;
                   },
@@ -100,8 +101,9 @@ class _LoginPageState extends State<LoginPage> {
                       setState(() {});
                       try {
                         await loginUser();
-                      //  showSnackBar(context, 'Login Sucsses', Colors.green);
-                         Navigator.pushNamed(context, chatPage.id);
+                        //  showSnackBar(context, 'Login Sucsses', Colors.green);
+                        Navigator.pushNamed(context, chatPage.id,
+                            arguments: email);
                       } on FirebaseAuthException catch (ex) {
                         if (ex.code == 'user-not-found') {
                           showSnackBar(context, 'No user found for that email.',
@@ -121,7 +123,6 @@ class _LoginPageState extends State<LoginPage> {
                               Colors.red);
                         }
                       } catch (ex) {
-                        print(ex);
                         showSnackBar(context, 'There was an error', Colors.red);
                       }
                       isLoading = false;
