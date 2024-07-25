@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  CustomTextFormField({this.onChanged, this.hintText, this.obSecured = false});
+  CustomTextFormField({super.key, this.onChanged, this.hintText, this.obSecured = false});
   String? hintText;
   Function(String)? onChanged;
   bool? obSecured = true;
@@ -14,6 +14,7 @@ class CustomTextFormField extends StatelessWidget {
         if (data!.isEmpty) {
           return 'field is required';
         }
+        return null;
       },
       onChanged: onChanged,
       style: const TextStyle(
