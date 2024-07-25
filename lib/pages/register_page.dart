@@ -1,5 +1,6 @@
 import 'package:chat_app/constants.dart';
 import 'package:chat_app/helper/show_snack_bar.dart';
+import 'package:chat_app/pages/chat_page.dart';
 import 'package:chat_app/pages/cubits/register_cubit/register_cubit.dart';
 import 'package:chat_app/widgets/custom_button.dart';
 import 'package:chat_app/widgets/custom_text_field.dart';
@@ -24,7 +25,7 @@ class RegisterPage extends StatelessWidget {
         if (state is RegisterLoading) {
           isLoading = true;
         } else if (state is RegisterSucces) {
-          Navigator.pushNamed(context, RegisterPage.id);
+          Navigator.pushNamed(context, chatPage.id);
           isLoading = false;
         } else if (state is RegisterFailure) {
           showSnackBar(
